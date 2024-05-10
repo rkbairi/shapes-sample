@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Shapes;
+using System.Drawing;
 
 namespace Canvases
 {
     public class Canvas : VectorGraphicsCanvas
     {
         private List<Shape> _shapes = new List<Shape>();
-        public new void DrawLine(Tuple<int,int> p1, Tuple<int,int> p2)
+        public new void DrawLine(Point p1, Point p2)
         {
             // Custom logic here
             base.DrawLine(p1, p2);

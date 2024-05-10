@@ -1,8 +1,10 @@
-﻿namespace Canvases
+﻿using System.Drawing;
+
+namespace Canvases
 {
     public class VectorGraphicsCanvas
     {
-        public void DrawLine(Tuple<int,int> p1, Tuple<int,int> p2)
+        public void DrawLine(Point p1, Point p2)
         {
             // Vector Graphics Logic
         }

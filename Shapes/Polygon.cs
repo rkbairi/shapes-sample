@@ -4,24 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Canvases;
+using System.Drawing;
 
 namespace Shapes
 {
     public class Polygon : Shape
     {
-        protected List<Tuple<int, int>> _points = new List<Tuple<int, int>>();
+        protected List<Point> _points = new List<Point>();
 
-        public void AddPoint(Tuple<int, int> p)
+        public void AddPoint(Point p)
         {
             _points.Add(p);
         }
 
-        public override Tuple<int, int> GetLeftMostPoint()
+        public override Point GetLeftMostPoint()
         {
-            Tuple<int, int> leftMost = _points[0];
+            Point leftMost = _points[0];
             for (int i = 1; i < _points.Count; i++)
             {
-                if (_points[i].Item1 < leftMost.Item1)
+                if (_points[i].X < leftMost.X)
                 {
                     leftMost = _points[i];
                 }
@@ -29,12 +30,12 @@ namespace Shapes
             return leftMost;
         }
 
-        public override Tuple<int, int> GetRightMostPoint()
+        public override Point GetRightMostPoint()
         {
-            Tuple<int, int> rightMost = _points[0];
+            Point rightMost = _points[0];
             for (int i = 1; i < _points.Count; i++)
             {
-                if (_points[i].Item1 > rightMost.Item1)
+                if (_points[i].X > rightMost.X)
                 {
                     rightMost = _points[i];
                 }
@@ -42,12 +43,12 @@ namespace Shapes
             return rightMost;
         }
 
-        public override Tuple<int, int> GetTopMostPoint()
+        public override Point GetTopMostPoint()
         {
-            Tuple<int, int> topMost = _points[0];
+            Point topMost = _points[0];
             for (int i = 1; i < _points.Count; i++)
             {
-                if (_points[i].Item2 < topMost.Item2)
+                if (_points[i].Y < topMost.Y)
                 {
                     topMost = _points[i];
                 }
@@ -55,12 +56,12 @@ namespace Shapes
             return topMost;
         }
 
-        public override Tuple<int, int> GetBottomMostPoint()
+        public override Point GetBottomMostPoint()
         {
-            Tuple<int, int> bottomMost = _points[0];
+            Point bottomMost = _points[0];
             for (int i = 1; i < _points.Count; i++)
             {
-                if (_points[i].Item2 > bottomMost.Item2)
+                if (_points[i].Y > bottomMost.Y)
                 {
                     bottomMost = _points[i];
                 }
